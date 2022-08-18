@@ -1,0 +1,116 @@
+<aside>
+  <nav id="leftMenu">
+    <h3>Links</h3>
+    <ul>
+      <li><a routerLink="./browse">SEO</a></li>
+      <li><a routerLink="./browse">PHP</a></li>
+      <li><a routerLink="./browse">Ajax</a></li>
+      <li><a routerLink="./browse">jQuery</a></li>
+      <li><a routerLink="./browse">Web design</a></li>
+      <li><a routerLink="./browse">Web Programming</a></li>
+      <li><a routerLink="./browse">Content Creation</a></li>
+      <li><a routerLink="./browse">Internet Marketing</a></li>
+      <li><a routerLink="./browse">XHTML Templates</a></li>
+    </ul>
+    <br /><br />
+     <div>
+      <h3>Newsletter</h3>
+     <!-- // <script>
+        // var showText=document.getElementById("news")
+        //showText();
+     // </script> -->
+     <font style="font-size:12px;" color="red" >{{output}}</font>
+     <form #usersubscribe="ngForm" (ngSubmit)="onClickSubmit(usersubscribe.value);resetUserForm(usersubscribe)">
+        <p>
+            <label for="Name">Full Name: </label>
+            <input
+              type="FullName"
+              name="FullName"
+              ngModel
+              required
+              pattern="[a-zA-Z][a-zA-Z ]{2,}"
+              #FullNameController="ngModel"
+            />
+          </p>
+          <span *ngIf="FullNameController.invalid && FullNameController.touched">
+            <p style="color: red">Please enter valid Full Name</p>
+          </span>
+        <p><label for="email">Email: </label>
+          <input type="email" name="email" ngModel required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #emailController="ngModel"    >
+      </p>
+      <span *ngIf="emailController.invalid && emailController.touched">
+          <p style="color: red;">Please enter valid Email </p>
+        </span>
+        <input type="submit" value="send">
+        <a href="#" onclick="clearAll()">Clear</a>
+      </form>
+    </div> 
+  </nav>
+</aside>
+
+<section>
+  <h2>Welcome to DCX Developer Directory!</h2>
+  <img class="float" src="../../assets/images/web.jpg" alt="web developer directory" />
+  <h3>Who Are We?</h3>
+  <p>
+    We are a fictional website and service that list top web developers
+    around the world. Search and browse fictional web developers on our
+    website absolutley FREE!
+  </p>
+  <h3>What Skills Do Our Developers Have?</h3>
+  <p>
+    Our listed fictional web developers skill ranges from Graphic design
+    with Photoshop, Illustrator and Fireworks to markup languages like
+    HTML5, XHTML and XML to programming languages such as Javascript, PHP,
+    Python and ASP
+  </p>
+</section>
+
+<section>
+  <h2>Latest DCX Developers</h2>
+  <div class="developer">
+    <h4>Adam Sullivan</h4>
+    <ul>
+      <li><strong>Location: </strong> Boston USA</li>
+      <li><strong>Skills: </strong> HTML/CSS, PHP, ROR</li>
+      <li><strong>Availability:</strong> Full-Time</li>
+    </ul>
+
+    <a routerLink="../#">View Profile</a>
+  </div>
+
+  <div class="developer">
+    <h4>Rick Monroe</h4>
+    <ul>
+      <li><strong>Location: </strong> Boston USA</li>
+      <li><strong>Skills: </strong> HTML/CSS, PHP, ROR</li>
+      <li><strong>Availability:</strong> Full-Time</li>
+    </ul>
+    
+    <a routerLink="../#">View Profile</a>
+
+  </div>
+
+  <div class="developer">
+    <h4>Michael Oliver</h4>
+    <ul>
+      <li><strong>Location: </strong> Boston USA</li>
+      <li><strong>Skills: </strong> HTML/CSS, PHP, ROR</li>
+      <li><strong>Availability:</strong> Full-Time</li>
+    </ul>
+
+    
+    <a routerLink="../#">View Profile</a>
+  </div>
+
+  <div class="developer">
+    <h4>Megan Jennings</h4>
+    <ul>
+      <li><strong>Location: </strong> Boston USA</li>
+      <li><strong>Skills: </strong> HTML/CSS, PHP, ROR</li>
+      <li><strong>Availability:</strong> Full-Time</li>
+    </ul>
+
+    <a routerLink="../#">View Profile</a>
+  </div>
+</section>

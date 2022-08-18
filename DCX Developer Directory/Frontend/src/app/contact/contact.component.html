@@ -1,0 +1,132 @@
+
+<nav id="leftMenu">
+    <h3>Links</h3>
+    <ul>
+        <li><a routerLink="../browse">SEO</a></li>
+        <li><a routerLink="../browse">PHP</a></li>
+        <li><a routerLink="../browse">Ajax</a></li>
+        <li><a routerLink="../browse">jQuery</a></li>
+        <li><a routerLink="../browse">Web design</a></li>
+        <li><a routerLink="../browse">Web Programming</a></li>
+        <li><a routerLink="../browse">Content Creation</a></li>
+        <li><a routerLink="../browse">Internet Marketing</a></li>
+        <li><a routerLink="../browse">XHTML Templates</a></li>
+    </ul>
+    </nav>
+<section>
+    <h3>Contact Us</h3>
+    <p>Please use this form to contact a member of our website team</p>
+    <font style="font-size:20px" color="blue">{{output}}</font>
+    <form   #usercontact="ngForm" (ngSubmit)="onClickSubmit(usercontact.value);resetUserForm(usercontact)">
+        <p>
+            <label for="FullName">Full Name: </label>
+            <input
+              type="FullName"
+              name="FullName"
+              ngModel
+              required
+              pattern="[a-zA-Z][a-zA-Z ]{2,}"
+              #FullNameController="ngModel"
+            />
+          </p>
+          <span *ngIf="FullNameController.invalid && FullNameController.touched">
+            <p style="color: red">Please enter valid Full Name</p>
+          </span>
+        <p><label for="email">Email: </label>
+            <input type="email" name="email" ngModel required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #emailController="ngModel"    >
+        </p>
+        <span *ngIf="emailController.invalid && emailController.touched">
+            <p style="color: red;">Please enter valid Email </p>
+          </span>
+        <p>
+            <label for="phone">Phone Number: </label>
+            <input type="phone" name="phone" ngModel required pattern="(0|91)?[6-9][0-9]{9}" #phoneController="ngModel" maxlength="10"   >
+        </p>
+        <span *ngIf="phoneController.invalid && phoneController.touched">
+            <p style="color: red;">Please enter valid Phone Number </p>
+          </span>
+        <p>
+            <label for="call">Best Time To Call: </label>
+            <input type="radio" name="time" value="morning" checked ngModel required #timeController="ngModel">Morning
+            <input type="radio" name="time" value="noon" ngModel >Noon
+            <input type="radio" name="time" value="evening" ngModel >Evening
+        </p>
+        <span *ngIf="timeController.invalid && timeController.touched">
+            <p style="color: red;">Please select one Time  </p>
+          </span>
+        <p>
+            <label for="location">Location: </label>
+            <input list="location" name="location"  ngModel required #locationController="ngModel">
+            <datalist id="location">
+                <option value="Pune">
+                <option value="Mumbai">
+                <option value="Chennai">
+            </datalist>
+        </p>
+        <span *ngIf="locationController.invalid && locationController.touched">
+            <p style="color: red;">Please select a Location </p>
+          </span>
+        <fieldset>
+            <legend>About Your Project</legend>
+            <p>
+        
+                <label for="budget">Budget: </label>
+                <input type="range" name="budget" min="100" max="10000" onchange="updateTextInput(this.value);"ngModel required #budgetController="ngModel">
+                <input type="text" id="textInput" name="budget" ngModel required #budgetController="ngModel" >
+            </p>
+            <span *ngIf="budgetController.invalid && budgetController.touched">
+                <p style="color: red;">Please select a Budget </p>
+              </span>
+            <p>
+                <label for="call">Services Needed: (Check all that apply) </label>
+                <table>
+                    <tr>
+                        <td><input type="checkbox" name="services" value="html" ngModel>html</td>
+                        <td><input type="checkbox" name="services" value="php" ngModel>PHP</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="services" value="asp" ngModel>ASP</td>
+                        <td><input type="checkbox" name="services" value="java" ngModel>Java</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="services" value="c" ngModel>C++</td>
+                        <td><input type="checkbox" name="services" value="design" ngModel>Design</td>
+                    </tr>
+                </table>
+            <!-- </p> -->
+            <p>
+                <label for="website">Current Website:</label>
+                <input type="url" name="website"   ngModel required #webController="ngModel">
+            </p>
+            <span *ngIf="webController.invalid && webController.touched">
+                <p style="color: red;">Please select valid Website </p>
+              </span>
+            <p>
+                <label for="startDate">Start Date:</label>
+                <input type="date" name="startDate"   ngModel required #dateController="ngModel">
+            </p>
+            <span *ngIf="dateController.invalid && dateController.touched">
+                <p style="color: red;">Please select valid Date </p>
+              </span>
+            <p>
+                <label for="pages">Number of Pages:</label>
+                <input type="number" name="pages"    ngModel required #pageController="ngModel" >
+            </p>
+            <span *ngIf="pageController.invalid && pageController.touched">
+                <p style="color: red;">Please select Page </p>
+              </span>
+            <p>
+                <label for="color">Main Website Color:</label>
+                <input type="color" name="color"  ngModel  required #colorController="ngModel">
+            </p>
+            <span *ngIf="colorController.invalid && colorController.touched">
+                <p style="color: red;">Please select Color </p>
+              </span>
+        </fieldset>
+        <p>
+            
+            <button type="submit" [disabled]="usercontact.invalid">Submit</button>
+          </p>
+    </form>
+
+</section>
